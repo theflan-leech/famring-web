@@ -4,16 +4,15 @@ import './Navbar.scss'
 import { HiSearch, HiMenu, HiOutlineX } from "react-icons/hi";
 import { usePathname } from 'next/navigation';
 import { navBarSkipPathList, checkPathInWhiteList } from '@/app/_utils/whiteListUtils.ts';
-import { NavItem } from './item/desktop/NavItem'
+import { NavItem } from './_conponents/desktop/NavItem'
 import { navItems } from './navItems';
 import { useEffect, useState } from 'react';
-import { MobileNavItem } from './item/mobile/MobileNavItem';
+import { MobileNavItem } from './_conponents/mobile/MobileNavItem';
 export default function Navbar() {
     const path: string = usePathname();
     const hideHeader: boolean = checkPathInWhiteList(path, navBarSkipPathList);
-
-
     const [expandMobileMenu, setExpandMobileMenu] = useState(false);
+    const [selectedMenu, setSelectedMenu] = useState<string | null>(null);
     useEffect(() => {
         window.addEventListener('resize', handleResize);
 
@@ -33,7 +32,6 @@ export default function Navbar() {
         }
     };
 
-    const [selectedMenu, setSelectedMenu] = useState<string | null>(null);
     function handleClick(e: React.MouseEvent<HTMLElement>, newMenu: string | null) {
         setSelectedMenu(newMenu);
         if(newMenu==null)

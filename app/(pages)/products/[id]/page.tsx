@@ -11,20 +11,6 @@ import { NextSeo } from 'next-seo';
 export default async function ProductDetail({ params }: { params: { id: number } }) {
     const product = (await loadProductDetail(params.id)).data
     return (
-        <>
-            <NextSeo
-                openGraph={{
-                    url: 'https://farming.com',
-                    title: product.title,
-                    description: product.details,
-                    images: [
-                        {
-                            url: product.thumbnail,
-                        }
-                    ],
-                    siteName: 'Farming',
-                }}
-            />
             <div className={styles['product-detail-container']}>
                 <Deeplink scheme='product' query={'id=' + params.id} />
                 {
@@ -56,7 +42,6 @@ export default async function ProductDetail({ params }: { params: { id: number }
                     </article>
                 </div>
             </div>
-        </>
     );
 }
 

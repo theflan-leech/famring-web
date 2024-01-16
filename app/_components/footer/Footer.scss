@@ -1,0 +1,90 @@
+@import "../../_styles/mixin";
+
+.terms-container-wrapper {
+    display: flex;
+    width: 100vw;
+    margin: auto;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+
+    @include desktop {
+        max-width: 1100px;
+        padding: 0px 25px;
+
+    }
+
+    @include tablet {
+        justify-content: center;
+    }
+
+    @include mobile {
+        justify-content: center;
+    }
+}
+
+.terms-container {
+    display: flex;
+    height: 60px;
+    align-items: center;
+    flex-wrap: wrap;
+
+    @include mobile {
+        justify-content: center;
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+}
+
+.footer-content-wrapper {
+    margin: auto;
+    width: 100%;
+    flex-wrap: wrap;
+    display: flex;
+    max-width: 1100px;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+.footer-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #666666;
+}
+
+.footer-content {
+    width: 50%;
+
+    @include tablet {
+        width: 100%;
+    }
+
+    @include mobile {
+        width: 100%;
+    }
+    &:last-child{
+        @include tablet {
+            margin-top: 25px;
+        }
+    
+        @include mobile {
+            margin-top: 25px;
+        }
+    }
+}
+
+.company-info {
+    margin-top: 8px;
+    font-size: 12px;
+    line-height: 2;
+    font-weight: 300;
+}
+.footer-button-container{
+    display: flex;
+}
+.footer-app-download{
+    background-color: #f2f3f6;
+}
+.footer-app-download-text{
+    color: white;
+    font-size: 14px;
+}

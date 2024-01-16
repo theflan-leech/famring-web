@@ -4,6 +4,7 @@ import './globals.css'
 import Navbar from './_components/nav-bar/Navbar'
 import React from 'react';
 import Providers from './ReactQueryProvider';
+import Footer from './_components/footer/Footer';
 const notoSansKr = Noto_Sans_KR({
   subsets: ['latin'],
 });
@@ -24,6 +25,7 @@ export default function RootLayout({
         <Providers>
             {children}
         </Providers>
+        <Footer/>
       </body>
     </html>
   )

@@ -1,0 +1,42 @@
+@import "../../../../_styles/mixin";
+
+.terms-item-container {
+    text-align: center;
+    // line-height: 60px;
+    padding: 0px 16px;
+    // height: 60px;
+    position: relative;
+
+    @include desktop {
+        &:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 1px;
+            height: 14px;
+            border-right: 1px solid rgb(204, 204, 204);
+            box-sizing: border-box;
+        }
+    }
+
+    @include tablet {
+        &:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 1px;
+            height: 14px;
+            border-right: 1px solid rgb(204, 204, 204);
+            box-sizing: border-box;
+        }
+    }
+
+}
+
+
+.terms-title {
+    font-size: 13px;
+    font-weight: 500;
+}
