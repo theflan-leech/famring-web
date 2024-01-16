@@ -1,8 +1,4 @@
-export type Navigation = {
+export type Terms = {
     title: string,
     url: string,
-    subNav: {
-        title: string,
-        url: string,
-    }[]
 }

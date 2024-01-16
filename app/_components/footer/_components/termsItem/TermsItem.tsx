@@ -1,4 +1,4 @@
-import { Terms } from '@/app/_types/terms';
+import { Terms } from '../../../../_types/terms';
 import './TermsItem.scss'
 import Link from 'next/link';
 export default function TermsItem({ terms }: { terms: Terms }) {

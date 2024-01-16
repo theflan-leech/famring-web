@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="terms-container-wrapper">
             <div className="terms-container">
                 {termsItems.map((terms) => {
-                    return <TermsItem terms={terms} />
+                    return <TermsItem key={terms.title} terms={terms} />
                 })}
             </div>
         </div>
