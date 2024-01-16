@@ -1,0 +1,35 @@
+@import "../../../_styles/mixin";
+@import "../../../_styles/variable";
+@import "../../../_styles/theme";
+
+.button-load-more-container {
+    margin-top: 40px;
+    text-align: center;
+    width: 100%;
+}
+
+.button-load-more {
+    height: 48px;
+    border-radius: 100px;
+    border: 0px;
+    background-color: $primary-color;
+    color: white;
+    font-weight: 600;
+    margin: auto;
+
+
+    @include desktop {
+        width: 200px;
+
+    }
+
+    @include tablet {
+        width: 100%;
+        max-width: $breakpoint-mobile;
+        margin: 0 16px;
+    }
+
+    @include mobile {
+        width: 90vw;
+    }
+}

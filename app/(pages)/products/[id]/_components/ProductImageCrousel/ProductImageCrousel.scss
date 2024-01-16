@@ -1,0 +1,14 @@
+@import "../../page.module.scss";
+.image {
+    width: 100%;
+    aspect-ratio: 669/500;
+    object-fit: cover;
+}
+
+.carousel {
+    border-radius: 16px;
+    @media  (max-width: $content-size) {
+        border-radius: 0px;
+      }
+  
+}

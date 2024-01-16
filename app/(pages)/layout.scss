@@ -1,0 +1,13 @@
+@import "../_styles/navigation.scss";
+.contents{
+    width: 100vw;
+    padding: $defaultGnbHeight 0px;
+    overflow: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    min-height: 100vh;
+
+}
+.contents::-webkit-scrollbar {
+    display: none !important;
+}

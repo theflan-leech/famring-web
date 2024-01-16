@@ -1,0 +1,59 @@
+@import '../../../../_styles/navigation.scss';
+
+
+.menu-item {
+    padding: 0px 10px;
+    display: table-cell;
+    vertical-align: middle;
+
+    >p {
+        line-height: $defaultGnbHeight;
+        font-size: 24px;
+        color: black;
+        text-align: center;
+        width: 100%;
+        font-weight: 500;
+    }
+    a{
+        color: black;
+    }
+
+}
+
+.menu-depth-container {
+
+    margin-top: -16px;
+    display: flex;
+    border-radius: 100px;
+    padding: 8px 16px;
+    background-color: #000;
+    gap: 20px;
+    display: none;
+    position: absolute;
+
+    // left: 50%;
+    // top: $defaultGnbHeight+16px;
+    // transform: translate(-50%, 0);
+    // max-width: $fullScreenMaxWidth;
+    // width: 100%;
+    a, a:visited {
+        color: #fff;
+        font-size: 18px;
+    }
+}
+
+.nav-menu-depth {
+    display: flex;
+    height: 60px;
+
+    li {
+        flex-direction: row;
+        align-items: center;
+        padding: 0 20px;
+
+        >p {
+            font-size: 18px;
+            font-weight: 500;
+        }
+    }
+}

@@ -1,0 +1,132 @@
+@import '../../_styles/navigation.scss';
+@import '../../_styles/mixin';
+.nav{
+    width: 100vw;
+    position: fixed;
+    background-color: white;
+    z-index: 999;
+}
+.nav-container {
+    max-width: $fullScreenMaxWidth;
+    padding: 0px 32px;
+    margin: auto;
+}
+
+
+.header-container {
+    min-height: $defaultGnbHeight;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    height: $defaultGnbHeight;
+    .logo {
+        width: 100px;
+        height: $defaultGnbHeight;
+        background-color: black;
+    }
+    h1 {
+        margin: 0px;
+    }
+}
+
+.menu-list-container {
+    display: flex;
+    gap: 10px;
+    margin: 0px;
+    margin-left: 30px;
+    flex-grow: 1;
+    height: $defaultGnbHeight;
+
+
+    li { cursor: pointer; }
+  
+    :hover{
+        > .menu-depth-container{
+            display: flex;
+        }
+    }
+    @media  (max-width: 992px) {
+        display: none;
+      }
+}
+.search-container-wrapper {
+    display: flex;
+    align-items: center;
+    height: $defaultGnbHeight;
+    @media  (max-width: 992px) {
+        display: none;
+      }
+}
+
+.search-container {
+    border-radius: 999px;
+    background-color: #eaebee;
+    display: flex;
+    height: 40px;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.search-input {
+    width: 200px;
+    border: none;
+    background-color: transparent;
+    margin-right: 8px;
+    outline: none;
+    font-size: 14px;
+
+    ::placeholder {
+        color: #d1d3d8;
+        font-style: italic;
+    }
+}
+.mobile-icon{
+    display: none;
+    @media  (max-width: 992px) {
+        display: block;
+      }
+}
+
+.nav-mobile-menu{
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    
+}
+@keyframes mobileGnb{
+    0%{
+        transform: translateX(100vw);
+    }
+    100%{
+
+        transform: translateX(0vw);
+    }
+}
+.expand {
+    animation-name: mobileGnb;
+    animation-duration:0.5s;
+    animation-timing-function : ease;
+    display: block;
+ 
+}
+.collapse {
+    transform: translateX(100vw);
+    display: none;
+}
+.mobile-header-container{
+    background-color: white;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+}
+.mobile-menu-list-container{
+width: 100%;
+}

@@ -1,0 +1,60 @@
+@import "../../../../_styles/navigation";
+.mobile-menu-item {
+    >p {
+        position: relative;
+        z-index: 1;
+        background-color: white;
+        line-height: $mobileMenuHeight;
+        font-size: 24px;
+        color: black;
+        text-align: center;
+        width: 100%;
+        font-weight: 500;
+    }
+    a{
+        width: 100%;
+        height: 100%;
+        color: black;
+        display: block;
+    }
+
+}
+.mobile-menu-depth-container {
+
+    border-radius: 100px;
+    gap: 20px;
+    display: none;
+    // left: 50%;
+    // top: $defaultGnbHeight+16px;
+    // transform: translate(-50%, 0);
+    // max-width: $fullScreenMaxWidth;
+    // width: 100%;
+    li {
+        line-height: $mobileSubMenuHeight;
+        height: $mobileSubMenuHeight;
+        text-align: center;
+    }
+    a, a:visited {
+        font-size: 18px;
+    }
+   
+}
+.sub-menu-expand {
+    animation-name: subMenuAnimation;
+    animation-duration:0.5s;
+    animation-timing-function : ease;
+    display: block;
+ 
+}
+.sub-mnue-collapse {
+    display: none;
+}
+@keyframes subMenuAnimation{
+    0%{
+        transform: translateY(-$mobileSubMenuHeight);
+    }
+    100%{
+
+        transform: translateY(0vw);
+    }
+}

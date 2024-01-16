@@ -13,10 +13,13 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "allowImportingTsExtensions": true,
     "plugins": [
       {
         "name": "next"
       }
+      ,
+      { "name": "typescript-plugin-css-modules" }
     ],
     "paths": {
       "@/*": ["./*"]

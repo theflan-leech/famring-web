@@ -1,0 +1,35 @@
+.product-item{
+    width: 100%;
+    color: black;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.product-thumbnail {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
+    background-color: black;
+}
+.product-title{
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: 500;
+}
+.product-price{
+    font-size: 20px;
+    font-weight: 600;
+}
+.product-town{
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 400;
+}
+.product-town{
+    font-size: 14px;
+    font-weight: 400;
+}
+.product-additional-information{
+    color: #666666;
+    font-size: 13px;
+    font-weight: 400;
+}

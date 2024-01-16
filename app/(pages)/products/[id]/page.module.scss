@@ -1,0 +1,107 @@
+@import "../../../_styles/theme";
+@import "../../../_styles/mixin";
+$content-padding : 16px;
+$content-size : 667px;
+
+.product-detail-container {
+    width: 100vw;
+    max-width: $content-size;
+    margin: auto;
+}
+
+.product-title-container-wrapper {
+    padding: $content-padding*2 $content-padding;
+    display: flex;
+    align-items: center;
+
+    .product-flex-empty {
+        flex-grow: 1;
+    }
+
+    @include mobile {
+        display: block;
+    }
+
+
+}
+
+.product-title-container {
+    max-width: 80%;
+    word-break: break-all;
+    box-sizing: border-box;
+
+}
+
+.product-address {
+    font-size: 14px;
+    color: #999999;
+}
+
+.product-title {
+    margin-top: 16px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.product-price {
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.product-category {
+    margin-top: 16px;
+    font-size: 14px;
+    color: #999999;
+    text-decoration: underline;
+}
+
+.button-open-app {
+    height: 48px;
+    font-size: 14px;
+    padding: 0px 16px;
+    border-radius: 100px;
+    border: 0px;
+    background-color: $primary-color;
+    color: white;
+    @include mobile {
+        margin-top: 16px;
+        width: 100%;
+    }
+}
+
+.user-container {
+    padding: $content-padding;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-sizing: border-box;
+}
+
+.user-profile-image {
+    width: 60px;
+    height: 60px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 100px;
+}
+
+.user-name {
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.product-detail {
+    padding: $content-padding;
+    font-size: 18px;
+    box-sizing: border-box;
+
+    article {
+        margin-top: 16px;
+    }
+}
+
+.product-detail-title {
+    font-size: 16px;
+    color: $label-text-color;
+}
