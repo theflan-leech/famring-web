@@ -2,7 +2,6 @@
 
 import "./ProductImageCrousel.scss"
 import { ProductImage } from "@/app/_types/product";
-import Image from "next/image";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 export default function ProductImageCrousel({ images }: { images: ProductImage[] }) {
@@ -20,7 +19,7 @@ export default function ProductImageCrousel({ images }: { images: ProductImage[]
                     images.map((image) => {
                          
                         return <div key={image.id} className='image-container'>
-                            <Image alt="상품 이미지" src={image.imageUrl} className="image" />
+                            <img src={image.imageUrl} className="image" />
 
                         </div>
                     }

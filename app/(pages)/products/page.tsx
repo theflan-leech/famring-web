@@ -9,8 +9,7 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import LoadMoreButton from "@/app/_components/loadmore/button/LoadMoreButton";
 export const dynamic = 'force-dynamic';//를 추가하면 다이나믹으로 강제화
 export default function Product() {
-
-    const { data, isLoading, fetchNextPage, hasNextPage }
+  const { data, isLoading, fetchNextPage, hasNextPage }
         = useInfiniteQuery<AxiosResponse, AxiosError>({
             queryKey: ['loadProducts'],
             queryFn: ({ pageParam = "" }) => loadProducts(pageParam as string),
@@ -24,14 +23,6 @@ export default function Product() {
                     return products[products.length - 1].registeredDate;
                 }
             },
-            // select: (data) => {
-
-            //     const products = data.pages[0].data.data.products;
-            //     return {
-            //         pages: products,
-            //         pageParams:products[products.length - 1].registeredDate,
-            //     }
-            // },
         }
 
 

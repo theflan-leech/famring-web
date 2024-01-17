@@ -1,8 +1,6 @@
-import axios from "axios";
 import { BASE_URL, axiosClient } from "./base"
 import { BaseResponse, LoadMoreProductPageData } from "../_types/response";
 import { Product, ProductDetail } from "@/app/_types/product";
-import { stringify } from "querystring";
 export const loadProducts = async (pageParam?:string) => {
   const response= await axiosClient.get<BaseResponse<LoadMoreProductPageData<Product>>>("/api/v1/web/products",{params: {onSale: true, lastRegisteredDate: pageParam,size:12}})
   return response
