@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "build:dev": "next build && cp .env.develoment .env && next start",
-    "start:dev": "cp .env.develoment .env && next start"
+    "build:dev": "set NODE_ENV=development && next build && next start",
+    "start:dev": "set NODE_ENV=development && next start"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.17.10",
