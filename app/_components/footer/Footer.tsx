@@ -1,9 +1,13 @@
 'use client'
+import { checkPathInWhiteList ,footerSkipList} from "@/app/_utils/whiteListUtils";
 import "./Footer.scss"
 import TermsItem from "./_components/termsItem/TermsItem"
 import { termsItems } from './tems';
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+    const path: string = usePathname();
+    const hideHeader: boolean =  checkPathInWhiteList(path, footerSkipList);
 
     return (<div>
         <hr />
