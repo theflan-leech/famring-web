@@ -1,4 +1,4 @@
-@import "../../../../_styles/theme";
+@import "../../../../_styles/mixin";
 .notice-container{
     display: flex;
     align-items: center;
@@ -11,13 +11,10 @@
 }
 
 .notice-title {
+    @include postTitle;
     margin-top: 8px;
-    font-weight: 400;
-    font-size: 18px;
-    color: $post-title-color
 }
 
 .notice-created-date{
-    color: $post-date-color;
-    font-size: 14px;
+    @include postSubTitle;
 }

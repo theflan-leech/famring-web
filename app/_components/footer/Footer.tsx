@@ -2,7 +2,7 @@
 import { checkPathInWhiteList, footerSkipList } from "@/app/_utils/whiteListUtils";
 import "./Footer.scss"
 import TermsItem from "./_components/termsItem/TermsItem"
-import { termsItems } from './tems';
+import { termsItems } from '../../_data/tems';
 import { usePathname } from "next/navigation";
 
 export default function Footer() {
@@ -11,6 +11,7 @@ export default function Footer() {
     return (
         !hideFooter ? <div>
             <hr />
+            <p className="footer-title terms-header-title">약관 및 정책</p>
             <div className="terms-container-wrapper">
                 <div className="terms-container">
                     {termsItems.map((terms) => {

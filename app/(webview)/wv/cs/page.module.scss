@@ -1,4 +1,8 @@
 @import "../../../_styles/theme.scss";
+.cs-header-title{
+    font-size: 20px;
+    font-weight: 500;
+}
 .cs-header-container{
     box-sizing: border-box;
     padding: 16px;
@@ -23,4 +27,12 @@
     ::placeholder {
         color: $placeholder-color ;
     }
+}
+.cs-terms-container{
+    padding: 16px;
+}
+.cs-terms-container-title{
+    font-size: 13px;
+    color: $label-text-color;
+    margin-bottom: 8px;
 }

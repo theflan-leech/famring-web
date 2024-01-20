@@ -13,14 +13,18 @@ export const loadNoticeDetail = async (id?: number): Promise<BaseResponse<Notice
 }
 
 export const loadFaqCateogries = async (): Promise<BaseResponse<FaqCateogory[]>> => {
-  const response = await fetch(BASE_URL + "/v1/web/faqs/categories");
+  const response = await fetch(BASE_URL + "/v1/web/faqs/categories",{ next: { revalidate: 60 } });
   const result = await response.json()
-  console.log(result);
   return result
 
 }
 
-export const loadFAQ = async (size :number,page?: number, categoryId?:number ,) => {
+export const loadFAQ = async (size :number,page?: number, categoryId?:number) => {
   const response = await axiosClient.get<BaseResponse<LoadMorePageData<FAQ>>>("/api/v1/web/faqs", { params: { categoryId: categoryId, page: page, size: size } });
+  return response
+}
+
+export const loadFaqCateogriesAxios = async () => {
+  const response = await axiosClient.get<BaseResponse<FaqCateogory[]>>("/api/v1/web/faqs/categories");
   return response
 }

@@ -33,10 +33,22 @@
         }
     }
 
+    @include mobile {
+
+        padding: 0px 25px;
+        text-align: start;
+    }
+
 }
 
 
 .terms-title {
     font-size: 13px;
     font-weight: 500;
+
+    @include mobile {
+        font-weight: 300;
+        line-height: 40px;
+    }
+
 }

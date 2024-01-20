@@ -1,5 +1,13 @@
 @import "../../_styles/mixin";
-
+.terms-header-title{
+    font-weight: 500;
+    padding: 16px 25px;
+    padding-bottom: 8px;
+    display: none;
+    @include mobile{
+        display: block;
+    }
+}
 .terms-container-wrapper {
     display: flex;
     width: 100vw;
@@ -19,6 +27,7 @@
 
     @include mobile {
         justify-content: center;
+        display: block;
     }
 }
 
@@ -29,20 +38,20 @@
     flex-wrap: wrap;
 
     @include mobile {
-        justify-content: center;
-        display: grid;
-        grid-template-columns: 50% 50%;
+        display: block;
+        height: auto;
     }
 }
 
+
 .footer-content-wrapper {
-    margin: auto;
     width: 100%;
     flex-wrap: wrap;
     display: flex;
     max-width: 1100px;
     padding: 25px;
     box-sizing: border-box;
+
 }
 
 .footer-title {
@@ -61,11 +70,12 @@
     @include mobile {
         width: 100%;
     }
-    &:last-child{
+
+    &:last-child {
         @include tablet {
             margin-top: 25px;
         }
-    
+
         @include mobile {
             margin-top: 25px;
         }
@@ -78,13 +88,16 @@
     line-height: 2;
     font-weight: 300;
 }
-.footer-button-container{
-    display: flex   ;
+
+.footer-button-container {
+    display: flex;
 }
-.footer-app-download{
+
+.footer-app-download {
     background-color: #f2f3f6;
 }
-.footer-app-download-text{
+
+.footer-app-download-text {
     color: white;
     font-size: 14px;
 }

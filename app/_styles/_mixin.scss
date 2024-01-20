@@ -18,3 +18,14 @@
     @content;
   }
 }
+
+@mixin postTitle {
+  font-size: $post-title-size;
+  font-weight: 300;
+  color: $post-title-color
+}
+@mixin postSubTitle {
+  font-size: $post-date-size;
+  font-weight: 200;
+  color: $post-date-color
+}
