@@ -3,7 +3,6 @@
   width: 100%;
 }
 .faq-title-container {
-  @include postTitle;
   width: 100%;
   display: flex;
 
@@ -11,6 +10,7 @@
 }
 
 .faq-title {
+  @include postTitle;
   flex-grow: 1;
   min-height: 24px;
   vertical-align: middle;
@@ -20,7 +20,6 @@
 
 .faq-title-category {
   @include postSubTitle;
-  font-weight: 300;
 }
 
 .szh-accordion {

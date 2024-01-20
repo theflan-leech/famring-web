@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     padding: 16px;
-    min-height: 48px;
+    min-height: 40px;
 
 }
 .notice-title-container {
@@ -12,7 +12,7 @@
 
 .notice-title {
     @include postTitle;
-    margin-top: 8px;
+    margin-top: 4px;
 }
 
 .notice-created-date{

@@ -26,6 +26,6 @@
 }
 @mixin postSubTitle {
   font-size: $post-date-size;
-  font-weight: 300;
-  color: $post-date-color
+  font-weight: 400;
+  color: $post-sub-title-color
 }
