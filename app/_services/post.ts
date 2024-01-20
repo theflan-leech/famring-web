@@ -15,6 +15,7 @@ export const loadNoticeDetail = async (id?: number): Promise<BaseResponse<Notice
 export const loadFaqCateogries = async (): Promise<BaseResponse<FaqCateogory[]>> => {
   const response = await fetch(BASE_URL + "/v1/web/faqs/categories");
   const result = await response.json()
+  console.log(result);
   return result
 
 }
