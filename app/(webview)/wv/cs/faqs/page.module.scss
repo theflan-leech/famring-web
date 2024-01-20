@@ -1,0 +1,81 @@
+@import "../../../../_styles/mixin";
+.faq-header{
+    position: fixed;
+    background: white;
+    padding: 16px 0px;
+    width: 100%;
+}
+.faq-search-container-wrapper {
+    padding: 0px 16px;
+}
+
+.faq-search-container {
+    border-radius: 999px;
+    background-color: $search-background-color;
+    display: flex;
+    height: 40px;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.faq-search-input {
+    border: none;
+    flex-grow: 1;
+    background-color: transparent;
+    outline: none;
+    font-size: 14px;
+
+    ::placeholder {
+        color: $placeholder-color ;
+    }
+}
+
+.faq-tag-container-wrapper {
+    margin-top: 16px;
+    display: flex;
+    padding: 0px 16px;
+}
+
+.faq-tag-container {
+    flex-grow: 1;
+    display: flex;
+    width: 100%;
+    overflow-x: scroll;
+    gap: 8px;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+
+}
+
+
+.faq-tag-container-expand {
+    @extend .faq-tag-container;
+    flex-wrap: wrap;
+
+}
+
+.faq-tag-item {
+    display: block;
+    line-height: 32px;
+    font-size: 13px;
+    color: $unselected-text-color;
+    border-radius: 100px;
+    border: 1px solid $default-border-color ;
+    padding: 0px 8px;
+    box-sizing: border-box;
+}
+
+.faq-tag-item-selected {
+    @extend .faq-tag-item;
+    border: 1px solid $faq-category-selected-background-color;
+    color: #fff;
+    background-color: $faq-category-selected-background-color;
+}
+
+.faq-tag-arrow-container {
+    width: 24px;
+    display: flex;
+    height: 32px;
+    align-items: center;
+}

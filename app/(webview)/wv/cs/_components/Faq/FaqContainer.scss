@@ -1,0 +1,30 @@
+@import "../../../../../_styles/mixin";
+.category-container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-column-gap: 4px;
+    grid-row-gap: 4px;
+    padding: 0px 16px;
+}
+
+.category-item{
+    box-sizing: border-box;
+    border: 1px solid $default-border-color;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 36px;
+    color : $unselected-text-color;
+    font-weight: 300;
+}
+.category-item-selected {
+    @extend .category-item;
+    color: white;
+    background-color: $faq-category-selected-background-color;
+    border: 1px solid $faq-category-selected-background-color;
+    font-weight: 500;
+    
+}
+.faq-accordion{
+    margin-top: 16px;
+}

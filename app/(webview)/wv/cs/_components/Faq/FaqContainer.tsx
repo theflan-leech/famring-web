@@ -1,16 +1,20 @@
 'use client'
 import { useEffect, useState } from 'react'
-import './Faq.scss'
+import './FaqContainer.scss'
 import { FaqCateogory } from '@/app/_types/post';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { loadFAQ } from '@/app/_services/post';
 import { Accordion, AccordionItem } from '@szhsin/react-accordion';
 import { HiChevronDown } from 'react-icons/hi';
+import FAQItem from '../FaqItem/Faq';
+import Link from 'next/link';
 /**
  * @type {React.ExoticComponent<import('@szhsin/react-accordion').AccordionItemProps>}
  */
 
 export default function FAQ({ categories }: { categories: FaqCateogory[] }) {
+
+    const queryClient = useQueryClient();
     const [selectedCategoryId, setSelectedCateogry] = useState<number | undefined>(undefined);
     const { data, error, isLoading, refetch } = useQuery({
         queryKey: ['loadFAQ'],
@@ -19,6 +23,9 @@ export default function FAQ({ categories }: { categories: FaqCateogory[] }) {
     });
     useEffect(() => {
         refetch();
+        return ()=>{
+            queryClient.cancelQueries({ queryKey: ['loadFAQ'] })
+        }
     }, [selectedCategoryId])
 
     return (
@@ -41,20 +48,15 @@ export default function FAQ({ categories }: { categories: FaqCateogory[] }) {
                 {
                     data?.data.map((faq) => {
                         return (
-                            <AccordionItem header={
-                                <div className='faq-title-container'>
-                                    <p className='faq-title'><span className='faq-title-category'>{faq.faqCategory.name}</span>What is Lorem Ipsum?</p>
-                                    <HiChevronDown className='chevron-down' size={24} />
-                                </div>
-                            } key={faq.id}>
-                                {faq.content}
-                            </AccordionItem>
+                            <FAQItem key={faq.id} faq={faq} />
                         )
                     })
                 }
             </Accordion>
 
-            <hr style={{margin : "0px 16px"}}/>
-            <button className='more-button' >더보기 </button>
+            <hr style={{ margin: "0px 16px" }} />
+            <Link href={{ pathname: "/wv/cs/faqs", query: { categoryId: selectedCategoryId } }}>
+                <button className='more-button' >더보기 </button>
+            </Link>
         </div>)
 }
