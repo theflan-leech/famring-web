@@ -21,11 +21,11 @@
 
 @mixin postTitle {
   font-size: $post-title-size;
-  font-weight: 300;
+  font-weight: 400;
   color: $post-title-color
 }
 @mixin postSubTitle {
   font-size: $post-date-size;
-  font-weight: 200;
+  font-weight: 300;
   color: $post-date-color
 }
