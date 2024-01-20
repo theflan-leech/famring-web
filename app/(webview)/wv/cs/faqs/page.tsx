@@ -99,7 +99,7 @@ export default function FAQ() {
             <div ref={faqScrollContainerRef} style={{ height: '0' }} />
             <InfiniteScroll hasMore={faqs.hasNextPage} loadMore={() => faqs.fetchNextPage()} style={{ paddingTop: `${fixedHeight}px` }}>
                 <div className={styles['faq-item-wrapper']}>
-                    <Accordion className='faq-accordion'>
+                    <Accordion>
                         {
                             faqs.data?.pages.map((item) => {
                                 return item.data.data.data.map((faq: FAQ) => {
