@@ -1,0 +1,26 @@
+@import "../../../_styles/theme.scss";
+.cs-header-container{
+    box-sizing: border-box;
+    padding: 16px;
+}
+.faq-search-container {
+    margin-top: 16px;
+    border-radius: 999px;
+    background-color : $search-background-color;
+    display: flex;
+    height: 40px;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.faq-search-input {
+    border: none;
+    flex-grow: 1;
+    background-color: transparent;
+    outline: none;
+    font-size: 14px;
+
+    ::placeholder {
+        color: $placeholder-color ;
+    }
+}

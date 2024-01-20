@@ -58,7 +58,7 @@ export default function Navbar() {
                         <div className='search-container-wrapper'>
                             <div className='search-container'>
                                 <input className='search-input' type='text' placeholder='파밍할 아이템을 검색해보세요!' />
-                                <HiSearch />
+                                <HiSearch size={24}/>
                             </div>
                         </div>
                         <HiMenu size={32} className='mobile-icon' onClick={() => {
