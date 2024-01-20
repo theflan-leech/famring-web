@@ -25,7 +25,7 @@ export default async function CustomerCenter() {
             {
 
                 termsItems.map((terms) => {
-                    return (<div><TermsItem key={terms.title} terms={terms} /><hr /></div>)
+                    return (<div key={terms.title}><TermsItem  terms={terms} /><hr /></div>)
                 })
             }
         </div>
