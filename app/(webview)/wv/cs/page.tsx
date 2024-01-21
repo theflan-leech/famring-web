@@ -2,7 +2,6 @@ import { HiSearch } from "react-icons/hi";
 import FaqContainer from "./_components/FaqContainer/FaqContainer";
 import styles from './page.module.scss';
 import { loadFaqCateogries } from "@/app/_services/post";
-import { termsItems } from '../../../_data/tems'
 import TermsItem from "./_components/Terms/TermsItem";
 import { loadTerms } from "@/app/_services/terms";
 
