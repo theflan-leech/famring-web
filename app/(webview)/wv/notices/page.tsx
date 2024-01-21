@@ -26,22 +26,18 @@ export default function Notice() {
         }
         );
     return (
-        <>
-            <div >
-                <InfiniteScroll hasMore={hasNextPage} loadMore={() => fetchNextPage()}>
-                    <div className={styles['product-item-wrapper']}>
-                        {
-                            data?.pages.map((item) => {
-                                return item.data.data.data.map((notice: Notice) => {
-                                    return <NoticeListItem key={notice.id} notice={notice} />
-                                })
+        <InfiniteScroll hasMore={hasNextPage} loadMore={() => fetchNextPage()}>
+            <div className={styles['product-item-wrapper']}>
+                {
+                    data?.pages.map((item) => {
+                        return item.data.data.data.map((notice: Notice) => {
+                            return <NoticeListItem key={notice.id} notice={notice} />
+                        })
 
-                            })
-                        }
-                    </div>
-
-                </InfiniteScroll>
+                    })
+                }
             </div>
-        </>
+
+        </InfiniteScroll>
     );
 }
