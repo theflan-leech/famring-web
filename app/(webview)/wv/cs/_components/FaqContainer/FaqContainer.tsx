@@ -21,7 +21,7 @@ export default function FaqContainer({ categories }: { categories: FaqCateogory[
     const [selectedCategoryId, setSelectedCateogry] = useState<number | undefined>(undefined);
     const { data, error, isLoading, refetch } = useQuery({
         queryKey: ['loadFAQ'],
-        queryFn: () => loadFAQ(5, '',0, selectedCategoryId),
+        queryFn: () => loadFAQ(5, '' , 0, selectedCategoryId),
         select: (response) => response?.data.data
     });
     useEffect(() => {

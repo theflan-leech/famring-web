@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react'
 import './Faq.scss'
-import { FAQ, FaqCateogory } from '@/app/_types/post';
-import { useQuery } from '@tanstack/react-query';
-import { loadFAQ } from '@/app/_services/post';
-import { Accordion, AccordionItem } from '@szhsin/react-accordion';
+import { FAQ } from '@/app/_types/post';
+import {  AccordionItem } from '@szhsin/react-accordion';
 import { HiChevronDown } from 'react-icons/hi';
 export default function FAQItem({ faq }: { faq: FAQ }) {
     return (
