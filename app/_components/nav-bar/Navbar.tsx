@@ -1,5 +1,4 @@
 'use client'
-
 import './Navbar.scss'
 import { HiSearch, HiMenu, HiOutlineX } from "react-icons/hi";
 import { usePathname } from 'next/navigation';
@@ -9,8 +8,6 @@ import { navItems } from './navItems';
 import { useEffect, useState } from 'react';
 import { MobileNavItem } from './_conponents/mobile/MobileNavItem';
 export default function Navbar() {
-    const path: string = usePathname();
-    const hideHeader: boolean = checkPathInWhiteList(path, navBarSkipPathList);
     const [expandMobileMenu, setExpandMobileMenu] = useState(false);
     const [selectedMenu, setSelectedMenu] = useState<string | null>(null);
     useEffect(() => {
@@ -39,7 +36,7 @@ export default function Navbar() {
             setExpandMobileMenu(false)
         }
     }
-    return (!hideHeader ?
+    return (
         <nav className='nav'>
             <div>
                 <div className='nav-container'>
@@ -87,9 +84,6 @@ export default function Navbar() {
                     </ul>
                 </div>
             </div>
-        </nav>
-
-
-        : null);
+        </nav>);
 
 }

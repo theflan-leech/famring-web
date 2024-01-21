@@ -1,4 +1,6 @@
 export type Terms = {
+    id:number
     title: string,
-    url: string,
+    termsType: string,
+    content:string|null,
 }

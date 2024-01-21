@@ -21,11 +21,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={notoSansKr.className}>
-        <Navbar />
         <Providers>
             {children}
         </Providers>
-        <Footer/>
       </body>
     </html>
   )

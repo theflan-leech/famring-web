@@ -16,6 +16,7 @@ export default function FAQ() {
     const [categoryExpand, setCategoryExpand] = useState(false);
     const [fixedHeight, setFixedHeight] = useState(0);
     const [selectedCategory, setSelectedCateogry] = useState<number | undefined>(searchParam.get('categoryId') ? parseInt(searchParam.get('categoryId')!, 10) : undefined);
+    const [query, setQuery] = useState(searchParam.get('query') || '');
     const categoryQuery = useQuery({
         queryKey: ['loadFAQCategory'],
         queryFn: () => loadFaqCateogriesAxios(),
@@ -24,6 +25,7 @@ export default function FAQ() {
     const categoryScrollContainerRef = useRef<HTMLDivElement>(null);
     const faqScrollContainerRef = useRef<HTMLDivElement>(null);
     const headerContainer = useRef<HTMLDivElement>(null);
+    const searchInputRef = useRef<HTMLInputElement>(null);
     function handleCategorySelect(categoryId: string | null) {
         setCategoryExpand(false);
         setSelectedCateogry(categoryId ? parseInt(categoryId!, 10) : undefined);
@@ -32,10 +34,12 @@ export default function FAQ() {
         if (headerContainer) {
             setFixedHeight(headerContainer.current?.clientHeight ? headerContainer.current?.clientHeight : 0);
         }
+        if (searchInputRef.current) {
+            searchInputRef.current.value = query;
+        }
     }, []);
     useEffect(() => {
         if (selectedCategory === null && categoryScrollContainerRef.current) {
-            console.log("scroll");
             categoryScrollContainerRef.current.scrollLeft = 0;
         }
         else {
@@ -45,11 +49,24 @@ export default function FAQ() {
         }
     }, [categoryExpand])
 
-    var pageNumber = 0;
-    const faqs
+    function handleKeyUp(e: React.KeyboardEvent) {
+        if (e.key === 'Enter') {
+            handleSearchClickEvent();
+        }
+    };
+    function handleSearchClickEvent() {
+        if (faqScrollContainerRef.current) {
+            faqScrollContainerRef.current.scrollIntoView();
+        }
+        if (searchInputRef.current) {
+            setQuery(searchInputRef.current.value);
+        }
+
+    }
+    var faqs
         = useInfiniteQuery<AxiosResponse, AxiosError, InfiniteData<AxiosResponse<any, any>>, QueryKey, number>({
             queryKey: ['loadFaqs'],
-            queryFn: ({ pageParam = 0 }) => loadFAQ(10, pageParam as number, selectedCategory),
+            queryFn: ({ pageParam = 0 }) => loadFAQ(20, query, pageParam as number, selectedCategory),
             initialPageParam: 0,
             getNextPageParam: (lastPage, allPages, lastPageParam) => {
                 if (lastPage.data.data.end) {
@@ -58,25 +75,26 @@ export default function FAQ() {
                 else {
                     return (lastPageParam as number) + 1;
                 }
-            },
-        }
-        );
+            }
+        });
     useEffect(() => {
         if (faqScrollContainerRef.current) {
             faqScrollContainerRef.current.scrollIntoView();
-          }
-        faqs.refetch();
-        return ()=>{
-            queryClient.cancelQueries({ queryKey: ['loadFaqs']});
         }
-    }, [selectedCategory])
+        if (faqs.isFetched) {
+            faqs.refetch();
+            return () => {
+                queryClient.cancelQueries({ queryKey: ['loadFaqs'] });
+            }
+        }
+    }, [selectedCategory, query])
 
     return (<div >
         <div className={styles['faq-header']} ref={headerContainer}>
             <div className={styles['faq-search-container-wrapper']}>
                 <div className={styles['faq-search-container']} >
-                    <input className={styles['faq-search-input']} type='text' placeholder='파밍할 아이템을 검색해보세요!' />
-                    <HiSearch size={24} />
+                    <input ref={searchInputRef} className={styles['faq-search-input']} type='text' placeholder='궁금하신 주제를 검색해주세요.' onKeyUp={handleKeyUp} />
+                    <HiSearch size={24} onClick={() => { handleSearchClickEvent() }} />
                 </div>
             </div>
             <div className={styles["faq-tag-container-wrapper"]} >

@@ -1,20 +1,18 @@
-'use client'
 import { checkPathInWhiteList, footerSkipList } from "@/app/_utils/whiteListUtils";
 import "./Footer.scss"
 import TermsItem from "./_components/termsItem/TermsItem"
-import { termsItems } from '../../_data/tems';
-import { usePathname } from "next/navigation";
+import { loadTerms } from "@/app/_services/terms";
 
-export default function Footer() {
-    const path: string = usePathname();
-    const hideFooter: boolean = checkPathInWhiteList(path, footerSkipList);
+export default async function Footer() {
+
+    const terms = (await loadTerms()).data
     return (
-        !hideFooter ? <div>
+        <footer>
             <hr />
             <p className="footer-title terms-header-title">약관 및 정책</p>
             <div className="terms-container-wrapper">
                 <div className="terms-container">
-                    {termsItems.map((terms) => {
+                    {terms.map((terms) => {
                         return <TermsItem key={terms.title} terms={terms} />
                     })}
                 </div>
@@ -47,5 +45,5 @@ export default function Footer() {
                 </div>
 
             </div>
-        </div> : null)
+        </footer>)
 }

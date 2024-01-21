@@ -6,25 +6,25 @@ export const loadNotices = async (pageParam?: string) => {
   return response
 }
 export const loadNoticeDetail = async (id?: number): Promise<BaseResponse<Notice>> => {
-  const response = await fetch(BASE_URL + "/v1/web/notices/" + id,{ next: { revalidate: 10 } });
+  const response = await fetch(BASE_URL + "/v1/notices/" + id,{ next: { revalidate: 10 } });
   const result = await response.json()
   return result
 
 }
 
 export const loadFaqCateogries = async (): Promise<BaseResponse<FaqCateogory[]>> => {
-  const response = await fetch(BASE_URL + "/v1/web/faqs/categories",{ next: { revalidate: 60 } });
+  const response = await fetch(BASE_URL + "/v1/faqs/categories",{ next: { revalidate: 60 } });
   const result = await response.json()
   return result
 
 }
 
-export const loadFAQ = async (size :number,page?: number, categoryId?:number) => {
-  const response = await axiosClient.get<BaseResponse<LoadMorePageData<FAQ>>>("/api/v1/web/faqs", { params: { categoryId: categoryId, page: page, size: size } });
+export const loadFAQ = async (size :number ,query?:string ,page?: number, categoryId?:number) => {
+  const response = await axiosClient.get<BaseResponse<LoadMorePageData<FAQ>>>("/api/v1/faqs", { params: { categoryId: categoryId, page: page, size: size ,query:query} });
   return response
 }
 
 export const loadFaqCateogriesAxios = async () => {
-  const response = await axiosClient.get<BaseResponse<FaqCateogory[]>>("/api/v1/web/faqs/categories");
+  const response = await axiosClient.get<BaseResponse<FaqCateogory[]>>("/api/v1/faqs/categories");
   return response
 }
